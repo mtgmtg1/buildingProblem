@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "344605046206",
+    "project_id": "buildingproblem-e8e36",
+    "storage_bucket": "buildingproblem-e8e36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344605046206:android:ae7601b4d4fda9b02275ef",
+        "android_client_info": {
+          "package_name": "com.mycompany.chmsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344605046206-dcpai1ujqj53rm84g0krpvlkhoii5av3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbplX5BqlOvA0zhZTnYvPTg7JdIIb2Mfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "344605046206-dcpai1ujqj53rm84g0krpvlkhoii5av3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "344605046206-18rt24m1dease9ikhqbsbb4s3baln37i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.chmsapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
