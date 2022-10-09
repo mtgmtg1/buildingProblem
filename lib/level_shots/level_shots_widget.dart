@@ -73,7 +73,7 @@ class _LevelShotsWidgetState extends State<LevelShotsWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0, 1),
                             child: Text(
-                              '레벨기 측정',
+                              '레벨기',
                               style:
                                   FlutterFlowTheme.of(context).title2.override(
                                         fontFamily: 'Happiness',
@@ -145,7 +145,7 @@ class _LevelShotsWidgetState extends State<LevelShotsWidget> {
                           ),
                         ),
                         child: Image.network(
-                          uploadedFileUrl,
+                          '',
                           width: MediaQuery.of(context).size.width,
                           height: MediaQuery.of(context).size.height * 1,
                           fit: BoxFit.cover,

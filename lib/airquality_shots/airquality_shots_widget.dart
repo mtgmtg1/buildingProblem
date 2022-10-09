@@ -6,7 +6,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -99,7 +98,7 @@ class _AirqualityShotsWidgetState extends State<AirqualityShotsWidget> {
                               child: Align(
                                 alignment: AlignmentDirectional(0, 1),
                                 child: Text(
-                                  '공기질측정',
+                                  '공기질',
                                   style: FlutterFlowTheme.of(context)
                                       .title2
                                       .override(
@@ -196,26 +195,6 @@ class _AirqualityShotsWidgetState extends State<AirqualityShotsWidget> {
                               ],
                             );
                           },
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.45,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: CachedNetworkImageProvider(
-                                  FFAppState().photo,
-                                ),
-                              ),
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
                         ),
                       ],
                     ),
@@ -403,8 +382,8 @@ class _AirqualityShotsWidgetState extends State<AirqualityShotsWidget> {
                   ),
                 ),
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    context.pushNamed('Home5');
                   },
                   text: '저장하기',
                   options: FFButtonOptions(

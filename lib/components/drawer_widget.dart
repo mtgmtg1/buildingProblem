@@ -183,7 +183,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 11),
           child: InkWell(
             onTap: () async {
-              context.pushNamed('Home5-3');
+              context.pushNamed('Home5');
             },
             child: Container(
               width: double.infinity,

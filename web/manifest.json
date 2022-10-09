@@ -1,6 +1,6 @@
 {
-    "name": "CHMSApp",
-    "short_name": "CHMSApp",
+    "name": "Homeins Sample",
+    "short_name": "Homeins Sample",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

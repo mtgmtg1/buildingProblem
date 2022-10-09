@@ -5,8 +5,6 @@ export 'home2/home2_widget.dart' show Home2Widget;
 export 'home3/home3_widget.dart' show Home3Widget;
 export 'home4/home4_widget.dart' show Home4Widget;
 export 'home5/home5_widget.dart' show Home5Widget;
-export 'home5_2/home52_widget.dart' show Home52Widget;
-export 'home5_3/home53_widget.dart' show Home53Widget;
 export 'airquality/airquality_widget.dart' show AirqualityWidget;
 export 'airquality_shots/airquality_shots_widget.dart'
     show AirqualityShotsWidget;
@@ -24,5 +22,5 @@ export 'ti_measure_check/ti_measure_check_widget.dart'
 export 'ti_measure_save/ti_measure_save_widget.dart' show TiMeasureSaveWidget;
 export 'level_main/level_main_widget.dart' show LevelMainWidget;
 export 'level_shots/level_shots_widget.dart' show LevelShotsWidget;
-export 'manage_upload/manage_upload_widget.dart' show ManageUploadWidget;
 export 'ti_file_test/ti_file_test_widget.dart' show TiFileTestWidget;
+export 'manage_upload/manage_upload_widget.dart' show ManageUploadWidget;

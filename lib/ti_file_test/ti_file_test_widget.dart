@@ -1,11 +1,17 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TiFileTestWidget extends StatefulWidget {
-  const TiFileTestWidget({Key? key}) : super(key: key);
+  const TiFileTestWidget({
+    Key? key,
+    this.usercheck2,
+  }) : super(key: key);
+
+  final DocumentReference? usercheck2;
 
   @override
   _TiFileTestWidgetState createState() => _TiFileTestWidgetState();

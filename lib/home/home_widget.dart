@@ -60,7 +60,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(0, 1),
                               child: Text(
-                                '전자통합관리시스템',
+                                '홈인스펙터 시스템',
                                 style: FlutterFlowTheme.of(context)
                                     .title2
                                     .override(

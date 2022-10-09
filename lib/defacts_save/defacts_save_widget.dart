@@ -1,11 +1,17 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefactsSaveWidget extends StatefulWidget {
-  const DefactsSaveWidget({Key? key}) : super(key: key);
+  const DefactsSaveWidget({
+    Key? key,
+    this.usercheck1,
+  }) : super(key: key);
+
+  final DocumentReference? usercheck1;
 
   @override
   _DefactsSaveWidgetState createState() => _DefactsSaveWidgetState();
@@ -485,194 +491,118 @@ class _DefactsSaveWidgetState extends State<DefactsSaveWidget> {
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/402/600',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 7, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      width: 120,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/402/600',
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFCC0000),
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.05, 0),
+                                          child: Text(
+                                            '1',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Happiness',
+                                                  color: Colors.white,
+                                                  useGoogleFonts: false,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).customColor5,
-                                ),
-                                child: Image.network(
-                                  '',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).customColor5,
-                                ),
-                                child: Image.network(
-                                  '',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(7, 0, 0, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      width: 120,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .customColor5,
+                                      ),
+                                      child: Image.network(
+                                        '',
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .customColor5,
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.05, 0),
+                                          child: Text(
+                                            '2',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Happiness',
+                                                  color: Colors.white,
+                                                  useGoogleFonts: false,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(35, 10, 35, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFCC0000),
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '1',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor5,
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '2',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor5,
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '3',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.43,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Color(0xFF002B52),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Text(
-                                      '삭제',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Color(0xFF727272),
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.43,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor1,
-                                    border: Border.all(
-                                      color: Color(0xFF002B52),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Text(
-                                      '재촬영',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                         ],
                       ),
@@ -703,194 +633,118 @@ class _DefactsSaveWidgetState extends State<DefactsSaveWidget> {
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Image.network(
-                                  'https://picsum.photos/seed/402/600',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 7, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      width: 120,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/402/600',
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFCC0000),
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.05, 0),
+                                          child: Text(
+                                            '1',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Happiness',
+                                                  color: Colors.white,
+                                                  useGoogleFonts: false,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).customColor5,
-                                ),
-                                child: Image.network(
-                                  '',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).customColor5,
-                                ),
-                                child: Image.network(
-                                  '',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(7, 0, 0, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Container(
+                                      width: 120,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .customColor5,
+                                      ),
+                                      child: Image.network(
+                                        '',
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.08,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .customColor5,
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.05, 0),
+                                          child: Text(
+                                            '2',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Happiness',
+                                                  color: Colors.white,
+                                                  useGoogleFonts: false,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(35, 10, 35, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFCC0000),
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '1',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor5,
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '2',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor5,
-                                    borderRadius: BorderRadius.circular(3),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.05, 0),
-                                    child: Text(
-                                      '3',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.43,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Color(0xFF002B52),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Text(
-                                      '삭제',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Color(0xFF727272),
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.43,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .customColor1,
-                                    border: Border.all(
-                                      color: Color(0xFF002B52),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0, 0),
-                                    child: Text(
-                                      '재촬영',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            color: Colors.white,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
                         ],
                       ),

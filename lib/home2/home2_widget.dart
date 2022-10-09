@@ -1,5 +1,6 @@
 import '../backend/backend.dart';
 import '../components/drawer_widget.dart';
+import '../flutter_flow/flutter_flow_radio_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -15,6 +16,14 @@ class Home2Widget extends StatefulWidget {
 }
 
 class _Home2WidgetState extends State<Home2Widget> {
+  Map<UserRecord, bool> checkboxListTileValueMap = {};
+  List<UserRecord> get checkboxListTileCheckedItems =>
+      checkboxListTileValueMap.entries
+          .where((e) => e.value)
+          .map((e) => e.key)
+          .toList();
+
+  String? radioButtonValue;
   TextEditingController? textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -159,65 +168,57 @@ class _Home2WidgetState extends State<Home2Widget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                                border: Border.all(
+                                  color: Color(0xFF656565),
+                                  width: 1,
+                                ),
                               ),
-                              child: TextFormField(
-                                controller: textController,
-                                onChanged: (_) => EasyDebounce.debounce(
-                                  'textController',
-                                  Duration(milliseconds: 2000),
-                                  () => setState(() {}),
-                                ),
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  hintText: columnUserRecord!.displayName,
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF8F8F8F),
-                                      width: 2,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller: textController,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        'textController',
+                                        Duration(milliseconds: 2000),
+                                        () => setState(() {}),
+                                      ),
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        hintText: valueOrDefault<String>(
+                                          columnUserRecord!.displayName,
+                                          '고객명 입력',
+                                        ),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                20, 11, 20, 0),
+                                        suffixIcon:
+                                            textController!.text.isNotEmpty
+                                                ? InkWell(
+                                                    onTap: () async {
+                                                      textController?.clear();
+                                                      setState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.clear,
+                                                      color: Color(0xFF757575),
+                                                      size: 22,
+                                                    ),
+                                                  )
+                                                : null,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                      textAlign: TextAlign.start,
+                                      keyboardType: TextInputType.name,
                                     ),
-                                    borderRadius: BorderRadius.circular(1),
                                   ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF8F8F8F),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(1),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(1),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 2,
-                                    ),
-                                    borderRadius: BorderRadius.circular(1),
-                                  ),
-                                  contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
-                                          20, 0, 20, 0),
-                                  suffixIcon: textController!.text.isNotEmpty
-                                      ? InkWell(
-                                          onTap: () async {
-                                            textController?.clear();
-                                            setState(() {});
-                                          },
-                                          child: Icon(
-                                            Icons.clear,
-                                            color: Color(0xFF757575),
-                                            size: 22,
-                                          ),
-                                        )
-                                      : null,
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyText1,
-                                textAlign: TextAlign.start,
-                                keyboardType: TextInputType.name,
+                                ],
                               ),
                             ),
                           ],
@@ -287,73 +288,63 @@ class _Home2WidgetState extends State<Home2Widget> {
                                         height: 2,
                                         thickness: 2,
                                       ),
-                                      StreamBuilder<List<UserRecord>>(
-                                        stream: queryUserRecord(
-                                          queryBuilder: (userRecord) =>
-                                              userRecord.where('display_name',
-                                                  isEqualTo:
-                                                      textController!.text),
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50,
-                                                height: 50,
-                                                child:
-                                                    CircularProgressIndicator(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryColor,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 10),
+                                        child: StreamBuilder<List<UserRecord>>(
+                                          stream: queryUserRecord(
+                                            queryBuilder: (userRecord) =>
+                                                userRecord.where('display_name',
+                                                    isEqualTo:
+                                                        textController!.text),
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50,
+                                                  height: 50,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          }
-                                          List<UserRecord>
-                                              listViewUserRecordList =
-                                              snapshot.data!;
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                listViewUserRecordList.length,
-                                            itemBuilder:
-                                                (context, listViewIndex) {
-                                              final listViewUserRecord =
-                                                  listViewUserRecordList[
-                                                      listViewIndex];
-                                              return Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                            .size
-                                                            .width,
-                                                    height: 40,
-                                                    decoration: BoxDecoration(),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5, 0, 5, 0),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                            'Home5-3',
-                                                            queryParams: {
-                                                              'userDetail3':
-                                                                  serializeParam(
-                                                                listViewUserRecord
-                                                                    .reference,
-                                                                ParamType
-                                                                    .DocumentReference,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        },
+                                              );
+                                            }
+                                            List<UserRecord>
+                                                listViewUserRecordList =
+                                                snapshot.data!;
+                                            return ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount:
+                                                  listViewUserRecordList.length,
+                                              itemBuilder:
+                                                  (context, listViewIndex) {
+                                                final listViewUserRecord =
+                                                    listViewUserRecordList[
+                                                        listViewIndex];
+                                                return Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 0,
+                                                                    10, 7),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -362,12 +353,85 @@ class _Home2WidgetState extends State<Home2Widget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.35,
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Expanded(
+                                                                    child:
+                                                                        Theme(
+                                                                      data:
+                                                                          ThemeData(
+                                                                        checkboxTheme:
+                                                                            CheckboxThemeData(
+                                                                          shape:
+                                                                              RoundedRectangleBorder(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(25),
+                                                                          ),
+                                                                        ),
+                                                                        unselectedWidgetColor:
+                                                                            Color(0xFF95A1AC),
+                                                                      ),
+                                                                      child:
+                                                                          CheckboxListTile(
+                                                                        value: checkboxListTileValueMap[listViewUserRecord] ??=
+                                                                            true,
+                                                                        onChanged:
+                                                                            (newValue) =>
+                                                                                setState(() => checkboxListTileValueMap[listViewUserRecord] = newValue!),
+                                                                        title:
+                                                                            Text(
+                                                                          listViewUserRecord
+                                                                              .displayName!,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .title3
+                                                                              .override(
+                                                                                fontFamily: 'Happiness',
+                                                                                fontSize: 14,
+                                                                                useGoogleFonts: false,
+                                                                              ),
+                                                                        ),
+                                                                        tileColor:
+                                                                            Color(0xFFF5F5F5),
+                                                                        activeColor:
+                                                                            FlutterFlowTheme.of(context).customColor1,
+                                                                        dense:
+                                                                            true,
+                                                                        controlAffinity:
+                                                                            ListTileControlAffinity.leading,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.25,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
                                                                 children: [
                                                                   Text(
                                                                     dateTimeFormat(
@@ -396,104 +460,54 @@ class _Home2WidgetState extends State<Home2Widget> {
                                                                 ],
                                                               ),
                                                             ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          20,
-                                                                          0,
-                                                                          20,
-                                                                          0),
-                                                              child: Container(
-                                                                decoration:
-                                                                    BoxDecoration(),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Text(
-                                                                      listViewUserRecord
-                                                                          .displayName!,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
                                                             Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.3,
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
                                                                 children: [
-                                                                  Text(
-                                                                    listViewUserRecord
-                                                                        .addressDetail!,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1,
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0,
+                                                                            0),
+                                                                    child: Text(
+                                                                      listViewUserRecord
+                                                                          .addressDetail!,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1,
+                                                                    ),
                                                                   ),
                                                                 ],
-                                                              ),
-                                                            ),
-                                                            FFButtonWidget(
-                                                              onPressed: () {
-                                                                print(
-                                                                    'Button pressed ...');
-                                                              },
-                                                              text: '✔',
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: 20,
-                                                                height: 20,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .customColor1,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .subtitle2
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Happiness',
-                                                                      color: Colors
-                                                                          .white,
-                                                                      fontSize:
-                                                                          14,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                    ),
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  width: 1,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            5),
                                                               ),
                                                             ),
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
+                                                      Divider(
+                                                        height: 5,
+                                                        thickness: 1,
+                                                        color:
+                                                            Color(0xFFB2B2B2),
+                                                      ),
+                                                    ],
                                                   ),
-                                                  Divider(
-                                                    height: 1,
-                                                    thickness: 1,
-                                                    color: Color(0xFFB2B2B2),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
                                       ),
                                       Divider(
                                         height: 1,
@@ -514,6 +528,41 @@ class _Home2WidgetState extends State<Home2Widget> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed(
+                      'Home3',
+                      queryParams: {
+                        'name': serializeParam(
+                          columnUserRecord!.reference,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
+                    );
+                  },
+                  text: '고객 선택',
+                  options: FFButtonOptions(
+                    width: double.infinity,
+                    height: 55,
+                    color: FlutterFlowTheme.of(context).customColor1,
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Happiness',
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          useGoogleFonts: false,
+                        ),
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
+                    ),
                   ),
                 ),
               ],

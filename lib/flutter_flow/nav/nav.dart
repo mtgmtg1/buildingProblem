@@ -19,8 +19,8 @@ export 'serialization_util.dart';
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  CHMSAppFirebaseUser? initialUser;
-  CHMSAppFirebaseUser? user;
+  HomeinsSampleFirebaseUser? initialUser;
+  HomeinsSampleFirebaseUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -45,7 +45,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(CHMSAppFirebaseUser newUser) {
+  void update(HomeinsSampleFirebaseUser newUser) {
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
@@ -68,13 +68,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? Home2Widget() : HomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? Home2Widget() : HomeWidget(),
           routes: [
             FFRoute(
               name: 'login',
@@ -94,7 +94,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Home3',
               path: 'home3',
-              builder: (context, params) => Home3Widget(),
+              builder: (context, params) => Home3Widget(
+                name: params.getParam(
+                    'name', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'Home4',
@@ -110,22 +113,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => Home5Widget(
                 userDetail: params.getParam(
                     'userDetail', ParamType.DocumentReference, false, 'User'),
-              ),
-            ),
-            FFRoute(
-              name: 'Home5-2',
-              path: 'home52',
-              builder: (context, params) => Home52Widget(
-                info: params.getParam(
-                    'info', ParamType.DocumentReference, false, 'User'),
-              ),
-            ),
-            FFRoute(
-              name: 'Home5-3',
-              path: 'home53',
-              builder: (context, params) => Home53Widget(
-                userDetail3: params.getParam(
-                    'userDetail3', ParamType.DocumentReference, false, 'User'),
               ),
             ),
             FFRoute(
@@ -152,7 +139,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Defacts_main',
               path: 'defactsMain',
-              builder: (context, params) => DefactsMainWidget(),
+              builder: (context, params) => DefactsMainWidget(
+                usercheck4: params.getParam(
+                    'usercheck4', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'Defacts_shots',
@@ -172,12 +162,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Defacts_Save',
               path: 'defactsSave',
-              builder: (context, params) => DefactsSaveWidget(),
+              builder: (context, params) => DefactsSaveWidget(
+                usercheck1: params.getParam(
+                    'usercheck1', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'Ti_Measure',
               path: 'tiMeasure',
-              builder: (context, params) => TiMeasureWidget(),
+              builder: (context, params) => TiMeasureWidget(
+                usercheck5: params.getParam(
+                    'usercheck5', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'Ti_Measure_check',
@@ -192,7 +188,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Level_main',
               path: 'levelMain',
-              builder: (context, params) => LevelMainWidget(),
+              builder: (context, params) => LevelMainWidget(
+                level: params.getParam(
+                    'level', ParamType.DocumentReference, false, 'User'),
+              ),
             ),
             FFRoute(
               name: 'Level_shots',
@@ -200,14 +199,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => LevelShotsWidget(),
             ),
             FFRoute(
-              name: 'Manage_Upload',
-              path: 'manageUpload',
-              builder: (context, params) => ManageUploadWidget(),
-            ),
-            FFRoute(
               name: 'Ti_File_Test',
               path: 'tiFileTest',
-              builder: (context, params) => TiFileTestWidget(),
+              builder: (context, params) => TiFileTestWidget(
+                usercheck2: params.getParam(
+                    'usercheck2', ParamType.DocumentReference, false, 'User'),
+              ),
+            ),
+            FFRoute(
+              name: 'Manage_Upload',
+              path: 'manageUpload',
+              builder: (context, params) => ManageUploadWidget(
+                usercheck3: params.getParam(
+                    'usercheck3', ParamType.DocumentReference, false, 'User'),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -367,7 +372,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/login';
+            return '/home';
           }
           return null;
         },

@@ -2,11 +2,17 @@ import '../components/ti_popup_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TiMeasureWidget extends StatefulWidget {
-  const TiMeasureWidget({Key? key}) : super(key: key);
+  const TiMeasureWidget({
+    Key? key,
+    this.usercheck5,
+  }) : super(key: key);
+
+  final DocumentReference? usercheck5;
 
   @override
   _TiMeasureWidgetState createState() => _TiMeasureWidgetState();
@@ -73,7 +79,7 @@ class _TiMeasureWidgetState extends State<TiMeasureWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0, 1),
                             child: Text(
-                              '열화상 측정',
+                              '열화상',
                               style:
                                   FlutterFlowTheme.of(context).title2.override(
                                         fontFamily: 'Happiness',

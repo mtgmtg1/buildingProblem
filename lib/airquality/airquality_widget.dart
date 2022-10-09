@@ -35,6 +35,8 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
   TextEditingController? textController10;
   TextEditingController? textController11;
   TextEditingController? textController12;
+  TextEditingController? textController13;
+  TextEditingController? textController14;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -52,6 +54,8 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
     textController10 = TextEditingController();
     textController11 = TextEditingController();
     textController12 = TextEditingController();
+    textController13 = TextEditingController();
+    textController14 = TextEditingController();
   }
 
   @override
@@ -68,6 +72,8 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
     textController10?.dispose();
     textController11?.dispose();
     textController12?.dispose();
+    textController13?.dispose();
+    textController14?.dispose();
     super.dispose();
   }
 
@@ -130,7 +136,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0, 1),
                                   child: Text(
-                                    '공기질 측정',
+                                    '공기질',
                                     style: FlutterFlowTheme.of(context)
                                         .title2
                                         .override(
@@ -189,7 +195,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'TVOC / HCHO(ppm)',
+                                            'HCHO(포룸) / TVOC(휘발성 유기)ppm',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -197,7 +203,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .customColor1,
-                                                  fontSize: 16,
+                                                  fontSize: 15,
                                                   fontWeight: FontWeight.bold,
                                                   useGoogleFonts: false,
                                                 ),
@@ -1771,7 +1777,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              '공용욕실',
+                                                              '안방',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText1
@@ -1991,7 +1997,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              '부부욕실',
+                                                              '침실1',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText1
@@ -2211,7 +2217,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              '주방',
+                                                              '침실2',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText1
@@ -2431,7 +2437,7 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Text(
-                                                              '파우더룸',
+                                                              '거실',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText1
@@ -2474,6 +2480,446 @@ class _AirqualityWidgetState extends State<AirqualityWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           textController12,
+                                                                      autofocus:
+                                                                          true,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        hintText:
+                                                                            '37',
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyText2
+                                                                            .override(
+                                                                              fontFamily: 'Happiness',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 14,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: false,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0xFF404040),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        focusedBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0xFF404040),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        errorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0x00000000),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        focusedErrorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0x00000000),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        filled:
+                                                                            true,
+                                                                        fillColor:
+                                                                            Colors.white,
+                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            15,
+                                                                            2,
+                                                                            15,
+                                                                            2),
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Happiness',
+                                                                            fontSize:
+                                                                                14,
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                          ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .end,
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        context.pushNamed(
+                                                                            'Airquality_shots');
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .camera_alt_outlined,
+                                                                        color: Color(
+                                                                            0xFF525252),
+                                                                        size:
+                                                                            20,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return Padding(
+                                                                              padding: MediaQuery.of(context).viewInsets,
+                                                                              child: Container(
+                                                                                height: MediaQuery.of(context).size.height * 1,
+                                                                                child: AirPopup3DeleteWidget(),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            setState(() {}));
+                                                                      },
+                                                                      child:
+                                                                          FaIcon(
+                                                                        FontAwesomeIcons
+                                                                            .trashAlt,
+                                                                        color: Color(
+                                                                            0xFF525252),
+                                                                        size:
+                                                                            20,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 5, 0, 5),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Text(
+                                                              '부부욕실',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Happiness',
+                                                                    color: Color(
+                                                                        0xFF6D777A),
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts:
+                                                                        false,
+                                                                  ),
+                                                            ),
+                                                            Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.75,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 125,
+                                                                    height: 30,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          textController13,
+                                                                      autofocus:
+                                                                          true,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        hintText:
+                                                                            '37',
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyText2
+                                                                            .override(
+                                                                              fontFamily: 'Happiness',
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 14,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: false,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0xFF404040),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        focusedBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0xFF404040),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        errorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0x00000000),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        focusedErrorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0x00000000),
+                                                                            width:
+                                                                                1.5,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(0),
+                                                                        ),
+                                                                        filled:
+                                                                            true,
+                                                                        fillColor:
+                                                                            Colors.white,
+                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            15,
+                                                                            2,
+                                                                            15,
+                                                                            2),
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText1
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Happiness',
+                                                                            fontSize:
+                                                                                14,
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                          ),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .end,
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        context.pushNamed(
+                                                                            'Airquality_shots');
+                                                                      },
+                                                                      child:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .camera_alt_outlined,
+                                                                        color: Color(
+                                                                            0xFF525252),
+                                                                        size:
+                                                                            20,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            10,
+                                                                            0,
+                                                                            0,
+                                                                            0),
+                                                                    child:
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return Padding(
+                                                                              padding: MediaQuery.of(context).viewInsets,
+                                                                              child: Container(
+                                                                                height: MediaQuery.of(context).size.height * 1,
+                                                                                child: AirPopup3DeleteWidget(),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            setState(() {}));
+                                                                      },
+                                                                      child:
+                                                                          FaIcon(
+                                                                        FontAwesomeIcons
+                                                                            .trashAlt,
+                                                                        color: Color(
+                                                                            0xFF525252),
+                                                                        size:
+                                                                            20,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0, 5, 0, 5),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          children: [
+                                                            Text(
+                                                              '공용욕실',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Happiness',
+                                                                    color: Color(
+                                                                        0xFF6D777A),
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    useGoogleFonts:
+                                                                        false,
+                                                                  ),
+                                                            ),
+                                                            Container(
+                                                              width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width *
+                                                                  0.75,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 125,
+                                                                    height: 30,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          textController14,
                                                                       autofocus:
                                                                           true,
                                                                       obscureText:

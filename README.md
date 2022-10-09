@@ -1,4 +1,4 @@
-# CHMSApp
+# Homeins Sample
 
 A new Flutter project.
 

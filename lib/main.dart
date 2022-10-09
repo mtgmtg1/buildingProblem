@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = ThemeMode.system;
 
-  late Stream<CHMSAppFirebaseUser> userStream;
+  late Stream<HomeinsSampleFirebaseUser> userStream;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _appStateNotifier = AppStateNotifier();
     _router = createRouter(_appStateNotifier);
-    userStream = cHMSAppFirebaseUserStream()
+    userStream = homeinsSampleFirebaseUserStream()
       ..listen((user) => _appStateNotifier.update(user));
     Future.delayed(
       Duration(seconds: 1),
@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'CHMSApp',
+      title: 'Homeins Sample',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

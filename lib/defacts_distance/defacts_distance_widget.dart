@@ -70,7 +70,7 @@ class _DefactsDistanceWidgetState extends State<DefactsDistanceWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0, 1),
                             child: Text(
-                              '마감재 하자',
+                              '마감재',
                               style:
                                   FlutterFlowTheme.of(context).title2.override(
                                         fontFamily: 'Happiness',

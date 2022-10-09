@@ -3,22 +3,23 @@ import 'package:rxdart/rxdart.dart';
 
 import 'auth_util.dart';
 
-class CHMSAppFirebaseUser {
-  CHMSAppFirebaseUser(this.user);
+class HomeinsSampleFirebaseUser {
+  HomeinsSampleFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 }
 
-CHMSAppFirebaseUser? currentUser;
+HomeinsSampleFirebaseUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
-Stream<CHMSAppFirebaseUser> cHMSAppFirebaseUserStream() => FirebaseAuth.instance
+Stream<HomeinsSampleFirebaseUser> homeinsSampleFirebaseUserStream() =>
+    FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
-        .map<CHMSAppFirebaseUser>(
+        .map<HomeinsSampleFirebaseUser>(
       (user) {
-        currentUser = CHMSAppFirebaseUser(user);
+        currentUser = HomeinsSampleFirebaseUser(user);
         updateUserJwtTimer(user);
         return currentUser!;
       },

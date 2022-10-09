@@ -2,12 +2,18 @@ import '../components/drawer_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DefactsMainWidget extends StatefulWidget {
-  const DefactsMainWidget({Key? key}) : super(key: key);
+  const DefactsMainWidget({
+    Key? key,
+    this.usercheck4,
+  }) : super(key: key);
+
+  final DocumentReference? usercheck4;
 
   @override
   _DefactsMainWidgetState createState() => _DefactsMainWidgetState();
@@ -88,7 +94,7 @@ class _DefactsMainWidgetState extends State<DefactsMainWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0, 1),
                             child: Text(
-                              '마감재 하자',
+                              '마감재',
                               style:
                                   FlutterFlowTheme.of(context).title2.override(
                                         fontFamily: 'Happiness',
@@ -161,7 +167,7 @@ class _DefactsMainWidgetState extends State<DefactsMainWidget> {
                               width: MediaQuery.of(context).size.width * 0.23,
                               decoration: BoxDecoration(),
                               child: Text(
-                                '#카테고리',
+                                '위치',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -244,7 +250,7 @@ class _DefactsMainWidgetState extends State<DefactsMainWidget> {
                               width: MediaQuery.of(context).size.width * 0.23,
                               decoration: BoxDecoration(),
                               child: Text(
-                                '위치',
+                                '공종',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -327,7 +333,7 @@ class _DefactsMainWidgetState extends State<DefactsMainWidget> {
                               width: MediaQuery.of(context).size.width * 0.23,
                               decoration: BoxDecoration(),
                               child: Text(
-                                '공종',
+                                '하자내용',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -410,7 +416,7 @@ class _DefactsMainWidgetState extends State<DefactsMainWidget> {
                               width: MediaQuery.of(context).size.width * 0.23,
                               decoration: BoxDecoration(),
                               child: Text(
-                                '내용',
+                                '상세위치',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
