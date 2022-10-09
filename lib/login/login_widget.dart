@@ -78,27 +78,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                     height: 100,
                     fit: BoxFit.cover,
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 60),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          '하자점검 시스템',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Happiness',
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                fontSize: 33,
-                                useGoogleFonts: false,
-                              ),
-                        ),
-                      ],
-                    ),
-                  ),
                   Expanded(
                     child: DefaultTabController(
                       length: 2,
@@ -152,7 +131,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -160,7 +139,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -168,7 +147,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -177,13 +156,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20, 24, 20, 24),
+                                                    20, 15, 20, 15),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -214,7 +193,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -222,7 +201,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -230,7 +209,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -239,13 +218,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20, 24, 20, 24),
+                                                    20, 15, 20, 15),
                                             suffixIcon: InkWell(
                                               onTap: () => setState(
                                                 () => passwordVisibility =
@@ -297,7 +276,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           text: '로그인',
                                           options: FFButtonOptions(
                                             width: 230,
-                                            height: 50,
+                                            height: 45,
                                             color: Colors.white,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
@@ -315,6 +294,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               color: Colors.transparent,
                                               width: 1,
                                             ),
+                                            borderRadius:
+                                                BorderRadius.circular(3),
                                           ),
                                         ),
                                       ),
@@ -345,6 +326,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               color: Colors.transparent,
                                               width: 1,
                                             ),
+                                            borderRadius:
+                                                BorderRadius.circular(3),
                                           ),
                                         ),
                                       ),
@@ -378,7 +361,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -386,7 +369,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -394,7 +377,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -403,13 +386,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20, 24, 20, 24),
+                                                    20, 15, 20, 15),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -441,7 +424,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -449,7 +432,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -457,7 +440,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -466,13 +449,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(3),
                                             ),
                                             filled: true,
                                             fillColor: Colors.white,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    20, 24, 20, 24),
+                                                    20, 15, 20, 15),
                                             suffixIcon: InkWell(
                                               onTap: () => setState(
                                                 () => passwordCreateVisibility =
@@ -526,7 +509,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           text: '계정 만들기',
                                           options: FFButtonOptions(
                                             width: 230,
-                                            height: 50,
+                                            height: 45,
                                             color: Colors.white,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
@@ -544,6 +527,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               color: Colors.transparent,
                                               width: 1,
                                             ),
+                                            borderRadius:
+                                                BorderRadius.circular(3),
                                           ),
                                         ),
                                       ),

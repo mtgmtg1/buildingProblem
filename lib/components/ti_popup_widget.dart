@@ -168,7 +168,7 @@ class _TiPopupWidgetState extends State<TiPopupWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
                       child: InkWell(
                         onTap: () async {
-                          Navigator.pop(context);
+                          context.pushNamed('Ti_Measure_check');
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.2,

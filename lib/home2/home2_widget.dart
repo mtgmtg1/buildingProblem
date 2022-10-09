@@ -342,9 +342,9 @@ class _Home2WidgetState extends State<Home2Widget> {
                                                       child: InkWell(
                                                         onTap: () async {
                                                           context.pushNamed(
-                                                            'Home4',
+                                                            'Home5-3',
                                                             queryParams: {
-                                                              'userdetail':
+                                                              'userDetail3':
                                                                   serializeParam(
                                                                 listViewUserRecord
                                                                     .reference,

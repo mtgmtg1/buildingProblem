@@ -58,10 +58,15 @@ class _DefactsShotsWidgetState extends State<DefactsShotsWidget> {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.2,
                           decoration: BoxDecoration(),
-                          child: Icon(
-                            Icons.keyboard_arrow_left_rounded,
-                            color: Color(0xFF333333),
-                            size: 24,
+                          child: InkWell(
+                            onTap: () async {
+                              context.pop();
+                            },
+                            child: Icon(
+                              Icons.keyboard_arrow_left_rounded,
+                              color: Color(0xFF333333),
+                              size: 24,
+                            ),
                           ),
                         ),
                         Container(

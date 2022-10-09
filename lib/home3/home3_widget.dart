@@ -243,7 +243,10 @@ class _Home3WidgetState extends State<Home3Widget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          '16:00',
+                                                          dateTimeFormat(
+                                                              'Hm',
+                                                              listViewUserRecord
+                                                                  .checkDate!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -269,7 +272,10 @@ class _Home3WidgetState extends State<Home3Widget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          '18:00',
+                                                          dateTimeFormat(
+                                                              'Hm',
+                                                              listViewUserRecord
+                                                                  .ckeckEndTime!),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -334,9 +340,9 @@ class _Home3WidgetState extends State<Home3Widget> {
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         context.pushNamed(
-                                                          'Home5',
+                                                          'Home5-3',
                                                           queryParams: {
-                                                            'userDetail':
+                                                            'userDetail3':
                                                                 serializeParam(
                                                               listViewUserRecord
                                                                   .reference,

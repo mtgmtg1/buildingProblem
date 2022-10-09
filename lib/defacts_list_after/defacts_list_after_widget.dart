@@ -480,7 +480,7 @@ class _DefactsListAfterWidgetState extends State<DefactsListAfterWidget> {
               decoration: BoxDecoration(),
               child: FFButtonWidget(
                 onPressed: () async {
-                  context.pushNamed('Defacts_list');
+                  context.pushNamed('Defacts_Save');
                 },
                 text: '마감재 업로드',
                 options: FFButtonOptions(

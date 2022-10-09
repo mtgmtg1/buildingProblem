@@ -1,4 +1,3 @@
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -128,371 +127,333 @@ class _DefactsSaveWidgetState extends State<DefactsSaveWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: StreamBuilder<List<FinishingRecord>>(
-                    stream: queryFinishingRecord(
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                            ),
-                          ),
-                        );
-                      }
-                      List<FinishingRecord> columnFinishingRecordList =
-                          snapshot.data!;
-                      // Return an empty Container when the document does not exist.
-                      if (snapshot.data!.isEmpty) {
-                        return Container();
-                      }
-                      final columnFinishingRecord =
-                          columnFinishingRecordList.isNotEmpty
-                              ? columnFinishingRecordList.first
-                              : null;
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '하자 등록',
-                            style: FlutterFlowTheme.of(context).bodyText1,
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 60, 0),
-                                  child: Text(
-                                    '#위치',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Happiness',
-                                          color: Color(0xFF727272),
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: TextFormField(
-                                    controller: textController1,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: columnFinishingRecord!.position,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 2,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 2,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0x2E505050),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '하자 등록',
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 60, 0),
+                              child: Text(
+                                '#위치',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Happiness',
+                                      color: Color(0xFF727272),
+                                      useGoogleFonts: false,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 40, 0),
-                                  child: Text(
-                                    '공사종류',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Happiness',
-                                          color: Color(0xFF727272),
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: TextFormField(
-                                    controller: textController2,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: columnFinishingRecord!.type,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0x2E505050),
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController1,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: '거실',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 2,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 40, 0),
-                                  child: Text(
-                                    '하자내용',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Happiness',
-                                          color: Color(0xFF727272),
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: TextFormField(
-                                    controller: textController3,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: columnFinishingRecord!.etc,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0x2E505050),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 40, 0),
-                                  child: Text(
-                                    '상세위치',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Happiness',
-                                          color: Color(0xFF727272),
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: TextFormField(
-                                    controller: textController4,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText:
-                                          columnFinishingRecord!.positionDetail,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .customColor4,
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
-                                        ),
-                                        borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(4.0),
-                                          topRight: Radius.circular(4.0),
-                                        ),
-                                      ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 2,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  filled: true,
+                                  fillColor: Color(0x2E505050),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                              child: Text(
+                                '공사종류',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Happiness',
+                                      color: Color(0xFF727272),
+                                      useGoogleFonts: false,
+                                    ),
+                              ),
+                            ),
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController2,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: '좌측하부',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  filled: true,
+                                  fillColor: Color(0x2E505050),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                              child: Text(
+                                '하자내용',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Happiness',
+                                      color: Color(0xFF727272),
+                                      useGoogleFonts: false,
+                                    ),
+                              ),
+                            ),
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController3,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: '녹오염',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  filled: true,
+                                  fillColor: Color(0x2E505050),
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                              child: Text(
+                                '상세위치',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Happiness',
+                                      color: Color(0xFF727272),
+                                      useGoogleFonts: false,
+                                    ),
+                              ),
+                            ),
+                            Expanded(
+                              child: TextFormField(
+                                controller: textController4,
+                                autofocus: true,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  hintText: '많이 녹이 슬었어요',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .customColor4,
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
                                   ),
                                 ),
-                              ],
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

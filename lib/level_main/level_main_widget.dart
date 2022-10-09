@@ -207,49 +207,39 @@ class _LevelMainWidgetState extends State<LevelMainWidget> {
                               ),
                             ],
                           ),
-                          Builder(
-                            builder: (context) {
-                              final faultList3 =
-                                  columnFaultListRecord!.type!.toList();
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: faultList3.length,
-                                itemBuilder: (context, faultList3Index) {
-                                  final faultList3Item =
-                                      faultList3[faultList3Index];
-                                  return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10, 0, 0),
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.12,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .customColor5,
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    30, 0, 20, 0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  faultList3Item.toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
+                          ListView(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.12,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .customColor5,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            30, 0, 20, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              '거실 1',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Happiness',
@@ -257,283 +247,264 @@ class _LevelMainWidgetState extends State<LevelMainWidget> {
                                                             Color(0xFF1A1A1A),
                                                         useGoogleFonts: false,
                                                       ),
-                                                ),
-                                                Container(
-                                                  decoration: BoxDecoration(),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0, 0, 8, 0),
-                                                        child: InkWell(
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                                'Level_shots');
-                                                          },
-                                                          child: Icon(
-                                                            Icons
-                                                                .camera_alt_outlined,
-                                                            color: Color(
-                                                                0xFF727272),
-                                                            size: 20,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      FaIcon(
-                                                        FontAwesomeIcons
-                                                            .trashAlt,
+                                            ),
+                                            Container(
+                                              decoration: BoxDecoration(),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 8, 0),
+                                                    child: InkWell(
+                                                      onTap: () async {
+                                                        context.pushNamed(
+                                                            'Level_shots');
+                                                      },
+                                                      child: Icon(
+                                                        Icons
+                                                            .camera_alt_outlined,
                                                         color:
                                                             Color(0xFF727272),
-                                                        size: 17,
+                                                        size: 20,
                                                       ),
-                                                    ],
+                                                    ),
+                                                  ),
+                                                  FaIcon(
+                                                    FontAwesomeIcons.trashAlt,
+                                                    color: Color(0xFF727272),
+                                                    size: 17,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            40, 0, 10, 0),
+                                        child: StreamBuilder<List<LevelRecord>>(
+                                          stream: queryLevelRecord(
+                                            singleRecord: true,
+                                          ),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50,
+                                                  height: 50,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            List<LevelRecord>
+                                                rowLevelRecordList =
+                                                snapshot.data!;
+                                            // Return an empty Container when the document does not exist.
+                                            if (snapshot.data!.isEmpty) {
+                                              return Container();
+                                            }
+                                            final rowLevelRecord =
+                                                rowLevelRecordList.isNotEmpty
+                                                    ? rowLevelRecordList.first
+                                                    : null;
+                                            return Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.18,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.04,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor2,
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.05, 0),
+                                                    child: Text(
+                                                      rowLevelRecord!.num1!,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Happiness',
+                                                            color: Color(
+                                                                0xFF1A1A1A),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.18,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.04,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor2,
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.05, 0),
+                                                    child: Text(
+                                                      rowLevelRecord!.num2!,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Happiness',
+                                                            color: Color(
+                                                                0xFF1A1A1A),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.18,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.04,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor2,
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.05, 0),
+                                                    child: Text(
+                                                      rowLevelRecord!.num3!,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Happiness',
+                                                            color: Color(
+                                                                0xFF1A1A1A),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.18,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.04,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .customColor2,
+                                                      width: 2,
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.05, 0),
+                                                    child: Text(
+                                                      rowLevelRecord!.num4!,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Happiness',
+                                                            color: Color(
+                                                                0xFF1A1A1A),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            useGoogleFonts:
+                                                                false,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    40, 0, 10, 0),
-                                            child: StreamBuilder<
-                                                List<LevelRecord>>(
-                                              stream: queryLevelRecord(
-                                                singleRecord: true,
-                                              ),
-                                              builder: (context, snapshot) {
-                                                // Customize what your widget looks like when it's loading.
-                                                if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
-                                                List<LevelRecord>
-                                                    rowLevelRecordList =
-                                                    snapshot.data!;
-                                                // Return an empty Container when the document does not exist.
-                                                if (snapshot.data!.isEmpty) {
-                                                  return Container();
-                                                }
-                                                final rowLevelRecord =
-                                                    rowLevelRecordList
-                                                            .isNotEmpty
-                                                        ? rowLevelRecordList
-                                                            .first
-                                                        : null;
-                                                return Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.18,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .customColor2,
-                                                          width: 2,
-                                                        ),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.05, 0),
-                                                        child: Text(
-                                                          rowLevelRecord!.num1!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Happiness',
-                                                                color: Color(
-                                                                    0xFF1A1A1A),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.18,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .customColor2,
-                                                          width: 2,
-                                                        ),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.05, 0),
-                                                        child: Text(
-                                                          rowLevelRecord!.num2!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Happiness',
-                                                                color: Color(
-                                                                    0xFF1A1A1A),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.18,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .customColor2,
-                                                          width: 2,
-                                                        ),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.05, 0),
-                                                        child: Text(
-                                                          rowLevelRecord!.num3!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Happiness',
-                                                                color: Color(
-                                                                    0xFF1A1A1A),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .width *
-                                                              0.18,
-                                                      height:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
-                                                              0.04,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        border: Border.all(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .customColor2,
-                                                          width: 2,
-                                                        ),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.05, 0),
-                                                        child: Text(
-                                                          rowLevelRecord!.num4!,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Happiness',
-                                                                color: Color(
-                                                                    0xFF1A1A1A),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        ],
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

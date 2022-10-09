@@ -116,16 +116,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Home5-2',
               path: 'home52',
               builder: (context, params) => Home52Widget(
-                userDetail: params.getParam(
-                    'userDetail', ParamType.DocumentReference, false, 'User'),
+                info: params.getParam(
+                    'info', ParamType.DocumentReference, false, 'User'),
               ),
             ),
             FFRoute(
               name: 'Home5-3',
               path: 'home53',
               builder: (context, params) => Home53Widget(
-                userDetail: params.getParam(
-                    'userDetail', ParamType.DocumentReference, false, 'User'),
+                userDetail3: params.getParam(
+                    'userDetail3', ParamType.DocumentReference, false, 'User'),
               ),
             ),
             FFRoute(

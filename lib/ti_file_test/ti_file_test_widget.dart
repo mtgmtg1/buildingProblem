@@ -289,70 +289,67 @@ class _TiFileTestWidgetState extends State<TiFileTestWidget> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.05,
-                decoration: BoxDecoration(),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('Ti_Measure_check');
-                        },
-                        text: '업로드',
-                        options: FFButtonOptions(
-                          width: 164,
-                          height: 40,
-                          color: FlutterFlowTheme.of(context).customColor4,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Happiness',
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    useGoogleFonts: false,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(0),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: BoxDecoration(),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('Ti_Measure_check');
+                      },
+                      text: '업로드',
+                      options: FFButtonOptions(
+                        width: 164,
+                        height: 40,
+                        color: FlutterFlowTheme.of(context).customColor4,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Happiness',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  useGoogleFonts: false,
+                                ),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
                         ),
+                        borderRadius: BorderRadius.circular(0),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('Home5');
-                        },
-                        text: 'FLIR 다운로드',
-                        options: FFButtonOptions(
-                          width: 164,
-                          height: 40,
-                          color: FlutterFlowTheme.of(context).customColor1,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Happiness',
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    useGoogleFonts: false,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(0),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('Home5');
+                      },
+                      text: 'FLIR 다운로드',
+                      options: FFButtonOptions(
+                        width: 164,
+                        height: 40,
+                        color: FlutterFlowTheme.of(context).customColor1,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Happiness',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  useGoogleFonts: false,
+                                ),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
                         ),
+                        borderRadius: BorderRadius.circular(0),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

@@ -42,423 +42,208 @@ class _Home5WidgetState extends State<Home5Widget> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.9,
               decoration: BoxDecoration(),
-              child: StreamBuilder<UserRecord>(
-                stream: UserRecord.getDocument(widget.userDetail!),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50,
-                        height: 50,
-                        child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                      ),
-                    );
-                  }
-                  final columnUserRecord = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.115,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                decoration: BoxDecoration(),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.pop();
-                                  },
-                                  child: Icon(
-                                    Icons.chevron_left_rounded,
-                                    color: Colors.black,
-                                    size: 20,
-                                  ),
-                                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.115,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            decoration: BoxDecoration(),
+                            child: InkWell(
+                              onTap: () async {
+                                context.pop();
+                              },
+                              child: Icon(
+                                Icons.chevron_left_rounded,
+                                color: Colors.black,
+                                size: 20,
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                decoration: BoxDecoration(),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0, 1),
-                                  child: Text(
-                                    '전체메뉴',
-                                    style: FlutterFlowTheme.of(context)
-                                        .title2
-                                        .override(
-                                          fontFamily: 'Happiness',
-                                          color: Colors.black,
-                                          fontSize: 18,
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                decoration: BoxDecoration(),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                      Divider(
-                        height: 2,
-                        thickness: 0.5,
-                        color: Color(0xFF8E8E8E),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      columnUserRecord.displayName!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            useGoogleFonts: false,
-                                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            decoration: BoxDecoration(),
+                            child: Align(
+                              alignment: AlignmentDirectional(0, 1),
+                              child: Text(
+                                '전체메뉴',
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Happiness',
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      useGoogleFonts: false,
                                     ),
-                                    Text(
-                                      ' 고객님',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Happiness',
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ],
-                                ),
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 30, 15, 0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '마감재하자 점검 내역',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Happiness',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                            ),
-                                            Icon(
-                                              Icons.chevron_right_rounded,
-                                              color: Colors.black,
-                                              size: 22,
-                                            ),
-                                          ],
-                                        ),
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            decoration: BoxDecoration(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    height: 2,
+                    thickness: 0.5,
+                    color: Color(0xFF8E8E8E),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'name',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Happiness',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        useGoogleFonts: false,
                                       ),
+                                ),
+                                Text(
+                                  ' 고객님',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Happiness',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15, 30, 15, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '마감재하자 점검 내역',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Happiness',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                        Icon(
+                                          Icons.chevron_right_rounded,
+                                          color: Colors.black,
+                                          size: 22,
+                                        ),
+                                      ],
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 5, 5, 0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        decoration: BoxDecoration(),
-                                        child: StreamBuilder<
-                                            List<FaultListRecord>>(
-                                          stream: queryFaultListRecord(
-                                            singleRecord: true,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50,
-                                                  height: 50,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<FaultListRecord>
-                                                columnFaultListRecordList =
-                                                snapshot.data!;
-                                            // Return an empty Container when the document does not exist.
-                                            if (snapshot.data!.isEmpty) {
-                                              return Container();
-                                            }
-                                            final columnFaultListRecord =
-                                                columnFaultListRecordList
-                                                        .isNotEmpty
-                                                    ? columnFaultListRecordList
-                                                        .first
-                                                    : null;
-                                            return Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Divider(
-                                                  height: 2,
-                                                  thickness: 2,
-                                                ),
-                                                Container(
-                                                  width: MediaQuery.of(context)
-                                                      .size
-                                                      .width,
-                                                  decoration: BoxDecoration(),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                15, 10, 15, 10),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final fault =
-                                                            columnFaultListRecord!
-                                                                .type!
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children:
-                                                              List.generate(
-                                                                  fault.length,
-                                                                  (faultIndex) {
-                                                            final faultItem =
-                                                                fault[
-                                                                    faultIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          5,
-                                                                          0,
-                                                                          5),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Container(
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0,
-                                                                              0,
-                                                                              3,
-                                                                              0),
-                                                                          child:
-                                                                              Text(
-                                                                            '#',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                  fontFamily: 'Happiness',
-                                                                                  color: Color(0xFF737F82),
-                                                                                  fontSize: 13,
-                                                                                  useGoogleFonts: false,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                        Text(
-                                                                          faultItem
-                                                                              .toString(),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: 'Happiness',
-                                                                                color: Color(0xFF737F82),
-                                                                                fontSize: 13,
-                                                                                useGoogleFonts: false,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                  Container(
-                                                                    decoration:
-                                                                        BoxDecoration(),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          '4',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: 'Happiness',
-                                                                                fontSize: 13,
-                                                                                useGoogleFonts: false,
-                                                                              ),
-                                                                        ),
-                                                                        Text(
-                                                                          '건',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyText1
-                                                                              .override(
-                                                                                fontFamily: 'Happiness',
-                                                                                fontSize: 13,
-                                                                                useGoogleFonts: false,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Divider(
+                                          height: 2,
+                                          thickness: 2,
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    15, 10, 15, 10),
+                                            child: StreamBuilder<
+                                                List<FaultListRecord>>(
+                                              stream: queryFaultListRecord(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50,
+                                                      height: 50,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Divider(
-                                                  height: 2,
-                                                  thickness: 2,
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      decoration: BoxDecoration(),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 30, 15, 0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '업로드 관리',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Happiness',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                            ),
-                                            Icon(
-                                              Icons.chevron_right_rounded,
-                                              color: Colors.black,
-                                              size: 22,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 5, 5, 0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        decoration: BoxDecoration(),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              decoration: BoxDecoration(),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(5, 10, 5, 20),
-                                                child: Column(
+                                                  );
+                                                }
+                                                List<FaultListRecord>
+                                                    columnFaultListRecordList =
+                                                    snapshot.data!;
+                                                return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
-                                                  children: [
-                                                    Padding(
+                                                  children: List.generate(
+                                                      columnFaultListRecordList
+                                                          .length,
+                                                      (columnIndex) {
+                                                    final columnFaultListRecord =
+                                                        columnFaultListRecordList[
+                                                            columnIndex];
+                                                    return Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 0, 10, 0),
+                                                                  0, 5, 0, 5),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -467,713 +252,886 @@ class _Home5WidgetState extends State<Home5Widget> {
                                                                 .spaceBetween,
                                                         children: [
                                                           Container(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.2,
                                                             decoration:
                                                                 BoxDecoration(),
-                                                            child: Column(
+                                                            child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                Container(
-                                                                  width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width,
-                                                                  height: 50,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFEFEFEF),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Color(
-                                                                          0xFF838383),
-                                                                      width:
-                                                                          0.5,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      '3',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0,
-                                                                          10,
                                                                           0,
-                                                                          5),
+                                                                          3,
+                                                                          0),
                                                                   child: Text(
-                                                                    '마감재하자',
+                                                                    '#',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Happiness',
+                                                                          color:
+                                                                              Color(0xFF737F82),
                                                                           fontSize:
-                                                                              12,
+                                                                              13,
                                                                           useGoogleFonts:
                                                                               false,
                                                                         ),
                                                                   ),
                                                                 ),
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .customColor3,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            100),
-                                                                  ),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            7,
-                                                                            2,
-                                                                            7,
-                                                                            2),
-                                                                    child: Text(
-                                                                      '업로드완료',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                10,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
+                                                                Text(
+                                                                  '거실',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        color: Color(
+                                                                            0xFF737F82),
+                                                                        fontSize:
+                                                                            13,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
                                                                 ),
                                                               ],
                                                             ),
                                                           ),
                                                           Container(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.2,
                                                             decoration:
                                                                 BoxDecoration(),
-                                                            child: Column(
+                                                            child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                Container(
-                                                                  width: MediaQuery.of(
+                                                                Text(
+                                                                  '4',
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .size
-                                                                      .width,
-                                                                  height: 50,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFEFEFEF),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Color(
-                                                                          0xFF838383),
-                                                                      width:
-                                                                          0.5,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      '3',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontSize:
+                                                                            13,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
                                                                 ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          10,
-                                                                          0,
-                                                                          5),
-                                                                  child: Text(
-                                                                    '열화상 측정',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Happiness',
-                                                                          fontSize:
-                                                                              12,
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFF9E9E9E),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            100),
-                                                                  ),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            7,
-                                                                            2,
-                                                                            7,
-                                                                            2),
-                                                                    child: Text(
-                                                                      '대기중',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                10,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Container(
-                                                                  width: MediaQuery.of(
+                                                                Text(
+                                                                  '건',
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .size
-                                                                      .width,
-                                                                  height: 50,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFEFEFEF),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Color(
-                                                                          0xFF838383),
-                                                                      width:
-                                                                          0.5,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      '3',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          10,
-                                                                          0,
-                                                                          5),
-                                                                  child: Text(
-                                                                    '공기질 측정',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Happiness',
-                                                                          fontSize:
-                                                                              12,
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .customColor3,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            100),
-                                                                  ),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            7,
-                                                                            2,
-                                                                            7,
-                                                                            2),
-                                                                    child: Text(
-                                                                      '업로드완료',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                10,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Container(
-                                                                  width: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width,
-                                                                  height: 50,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFEFEFEF),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Color(
-                                                                          0xFF838383),
-                                                                      width:
-                                                                          0.5,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0,
-                                                                            0),
-                                                                    child: Text(
-                                                                      '3',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0,
-                                                                          10,
-                                                                          0,
-                                                                          5),
-                                                                  child: Text(
-                                                                    '레벨기 측정',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Happiness',
-                                                                          fontSize:
-                                                                              12,
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFF9E9E9E),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            100),
-                                                                  ),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            7,
-                                                                            2,
-                                                                            7,
-                                                                            2),
-                                                                    child: Text(
-                                                                      '대기중',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyText1
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Happiness',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            fontSize:
-                                                                                10,
-                                                                            useGoogleFonts:
-                                                                                false,
-                                                                          ),
-                                                                    ),
-                                                                  ),
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontSize:
+                                                                            13,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
                                                                 ),
                                                               ],
                                                             ),
                                                           ),
                                                         ],
                                                       ),
+                                                    );
+                                                  }),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                        Divider(
+                                          height: 2,
+                                          thickness: 2,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15, 30, 15, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          '업로드 관리',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Happiness',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                        Icon(
+                                          Icons.chevron_right_rounded,
+                                          color: Colors.black,
+                                          size: 22,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 0),
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    5, 10, 5, 20),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10, 0, 10, 0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Container(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              height: 50,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFEFEFEF),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Color(
+                                                                      0xFF838383),
+                                                                  width: 0.5,
+                                                                ),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0, 0),
+                                                                child: Text(
+                                                                  '3',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          10,
+                                                                          0,
+                                                                          5),
+                                                              child: Text(
+                                                                '마감재하자',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Happiness',
+                                                                      fontSize:
+                                                                          12,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .customColor3,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            100),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            7,
+                                                                            2,
+                                                                            7,
+                                                                            2),
+                                                                child: Text(
+                                                                  '업로드완료',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            10,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              height: 50,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFEFEFEF),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Color(
+                                                                      0xFF838383),
+                                                                  width: 0.5,
+                                                                ),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0, 0),
+                                                                child: Text(
+                                                                  '3',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          10,
+                                                                          0,
+                                                                          5),
+                                                              child: Text(
+                                                                '열화상 측정',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Happiness',
+                                                                      fontSize:
+                                                                          12,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFF9E9E9E),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            100),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            7,
+                                                                            2,
+                                                                            7,
+                                                                            2),
+                                                                child: Text(
+                                                                  '대기중',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            10,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              height: 50,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFEFEFEF),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Color(
+                                                                      0xFF838383),
+                                                                  width: 0.5,
+                                                                ),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0, 0),
+                                                                child: Text(
+                                                                  '3',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          10,
+                                                                          0,
+                                                                          5),
+                                                              child: Text(
+                                                                '공기질 측정',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Happiness',
+                                                                      fontSize:
+                                                                          12,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .customColor3,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            100),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            7,
+                                                                            2,
+                                                                            7,
+                                                                            2),
+                                                                child: Text(
+                                                                  '업로드완료',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            10,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            0.2,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width:
+                                                                  MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width,
+                                                              height: 50,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFEFEFEF),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Color(
+                                                                      0xFF838383),
+                                                                  width: 0.5,
+                                                                ),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0, 0),
+                                                                child: Text(
+                                                                  '3',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0,
+                                                                          10,
+                                                                          0,
+                                                                          5),
+                                                              child: Text(
+                                                                '레벨기 측정',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Happiness',
+                                                                      fontSize:
+                                                                          12,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFF9E9E9E),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            100),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            7,
+                                                                            2,
+                                                                            7,
+                                                                            2),
+                                                                child: Text(
+                                                                  '대기중',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Happiness',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            10,
+                                                                        useGoogleFonts:
+                                                                            false,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.97,
+                                  decoration: BoxDecoration(),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              border: Border.all(
+                                                color: Color(0xFF525252),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(15, 0, 15, 0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    '고객정보 관리',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color: Color(0xFF404040),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(15, 0, 15, 0),
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  context.pushNamed('Home4');
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      '고객정보',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.97,
-                                      decoration: BoxDecoration(),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  border: Border.all(
-                                                    color: Color(0xFF525252),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15, 0, 15, 0),
-                                                  child: InkWell(
-                                                    onTap: () async {
-                                                      context
-                                                          .pushNamed('Home5');
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          '고객정보 관리',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  border: Border.all(
-                                                    color: Color(0xFF404040),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15, 0, 15, 0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        '고객정보',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD5D5D5),
-                                                  border: Border.all(
-                                                    color: Color(0xFF525252),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15, 0, 15, 0),
-                                                  child: InkWell(
-                                                    onTap: () async {
-                                                      context
-                                                          .pushNamed('Home5-2');
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          '데이터 관리',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  border: Border.all(
-                                                    color: Color(0xFF404040),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD5D5D5),
-                                                  border: Border.all(
-                                                    color: Color(0xFF525252),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(15, 0, 15, 0),
-                                                  child: InkWell(
-                                                    onTap: () async {
-                                                      context
-                                                          .pushNamed('Home5-3');
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          '점검내역',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  border: Border.all(
-                                                    color: Color(0xFF404040),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFD5D5D5),
-                                                  border: Border.all(
-                                                    color: Color(0xFF525252),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.485,
-                                                height: 45,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  border: Border.all(
-                                                    color: Color(0xFF404040),
-                                                    width: 0.5,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
                                           ),
                                         ],
                                       ),
-                                    ),
-                                  ],
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFD5D5D5),
+                                              border: Border.all(
+                                                color: Color(0xFF525252),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(15, 0, 15, 0),
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  context.pushNamed('Home5-2');
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      '데이터 관리',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color: Color(0xFF404040),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFD5D5D5),
+                                              border: Border.all(
+                                                color: Color(0xFF525252),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(15, 0, 15, 0),
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  context.pushNamed('Home5-3');
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      '점검내역',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color: Color(0xFF404040),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFD5D5D5),
+                                              border: Border.all(
+                                                color: Color(0xFF525252),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.485,
+                                            height: 45,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              border: Border.all(
+                                                color: Color(0xFF404040),
+                                                width: 0.5,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  );
-                },
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
