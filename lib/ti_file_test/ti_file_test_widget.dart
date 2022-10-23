@@ -238,6 +238,7 @@ class _TiFileTestWidgetState extends State<TiFileTestWidget> {
         allowedExtensions: ['jpg'],
       ))!
           .files;
+      print(pathList.first.path);
     } on PlatformException catch (e) {
     } catch (e) {}
     if (!mounted) return;
